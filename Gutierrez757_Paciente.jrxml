@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reporte creado siguiendo el ejercicio de JasperReports visto en clase -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+ name="Gutierrez757_Paciente" pageWidth="842" pageHeight="595" orientation="Landscape"
+ columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4e76d39f-20ce-437c-84d1-4aa8b424312e">
+    <parameter name="orden" class="java.lang.String"/>
+    <parameter name="titulo" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[SELECT cedula,nombre,apellido,telefono,provincia,edad,sexo FROM paciente ORDER BY $P!{orden}]]>
+    </queryString>
+    <field name="cedula" class="java.lang.String"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="apellido" class="java.lang.String"/>
+    <field name="telefono" class="java.lang.String"/>
+    <field name="provincia" class="java.lang.String"/>
+    <field name="edad" class="java.lang.Integer"/>
+    <field name="sexo" class="java.lang.String"/>
+    <background><band splitType="Stretch"/></background>
+    <title>
+        <band height="55">
+            <textField>
+                <reportElement x="50" y="5" width="700" height="35" uuid="02fb337e-8288-4095-a3c4-2734114af184"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="18" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="24">
+            <staticText>
+                <reportElement x="0" y="0" width="120" height="24" uuid="11384afc-0c4c-479a-ac68-5a3924da3445"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Cedula]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="120" y="0" width="120" height="24" uuid="12029a88-54f1-4992-9040-d1767b15a99d"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Nombre]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="240" y="0" width="130" height="24" uuid="00f81ddd-ab4a-400c-92b9-975bb84e8e99"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Apellido]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="370" y="0" width="90" height="24" uuid="36ad8bcd-ef52-40aa-a87b-9f773b6f9469"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Telefono]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="460" y="0" width="150" height="24" uuid="d08cc0d4-64d5-41a8-a6dd-0e924a57e12a"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Provincia]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="610" y="0" width="70" height="24" uuid="2e7a9b73-a206-4ddf-9717-530af3ad04a5"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Edad]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="680" y="0" width="70" height="24" uuid="e0befa3e-8597-4340-90b0-9c123a467b11"/>
+                <box><pen lineWidth="0.5"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement>
+                <text><![CDATA[Sexo]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="22">
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="120" height="22" uuid="6e2a85d5-1a5a-4274-b978-a7b60a6679ff"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="120" y="0" width="120" height="22" uuid="fc42c5c1-15ba-4c7a-833c-034c396dc532"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="240" y="0" width="130" height="22" uuid="0e5bf7c6-4e02-4a73-9882-e76ca9e6a899"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="370" y="0" width="90" height="22" uuid="db961081-3036-4487-8dab-c233b7f348de"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="460" y="0" width="150" height="22" uuid="afbc182c-de79-4cb1-a8b5-28649491573a"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{provincia}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="610" y="0" width="70" height="22" uuid="d60adc83-85e5-4b35-b3f6-a4633cd39529"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{edad}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="680" y="0" width="70" height="22" uuid="1c64db2b-5a6d-449e-8feb-8f7fb54d2512"/>
+                <box><pen lineWidth="0.25"/></box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="25">
+            <textField>
+                <reportElement x="682" y="5" width="120" height="18" uuid="6a639707-881f-412f-abe0-16945ca8c854"/>
+                <textElement textAlignment="Right"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>

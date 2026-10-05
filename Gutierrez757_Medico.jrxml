@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reporte de medicos con numero consecutivo de registro -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+ name="Gutierrez757_Medico" pageWidth="842" pageHeight="595" orientation="Landscape"
+ columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="84744d05-1cab-4da0-89fd-7c862b498cc2">
+    <parameter name="orden" class="java.lang.String"/>
+    <parameter name="titulo" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[SELECT codigo,cedula,nombre,apellido,telefono,especialidad,pacientes_mes,pacientes_anual FROM medico ORDER BY $P!{orden}]]>
+    </queryString>
+    <field name="codigo" class="java.lang.String"/>
+    <field name="cedula" class="java.lang.String"/>
+    <field name="nombre" class="java.lang.String"/>
+    <field name="apellido" class="java.lang.String"/>
+    <field name="telefono" class="java.lang.String"/>
+    <field name="especialidad" class="java.lang.String"/>
+    <field name="pacientes_mes" class="java.lang.Integer"/>
+    <field name="pacientes_anual" class="java.lang.Integer"/>
+    <background><band splitType="Stretch"/></background>
+    <title>
+        <band height="62">
+            <textField>
+                <reportElement x="45" y="2" width="712" height="34" uuid="3b49a43b-bf2b-443a-86aa-0e05fc1e49be"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"><font size="18" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="45" y="38" width="712" height="18" uuid="c09cfc4c-e99c-4714-afaf-10ced96d6725"/>
+                <textElement textAlignment="Center"><font size="9" isItalic="true"/></textElement>
+                <text><![CDATA[Estudiante: Elizabeth Gutiérrez - Pasaporte: 20-53-8757]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="25">
+            <staticText><reportElement x="0" y="0" width="35" height="25" uuid="4712f6f1-74de-48e3-8065-e29f05e6bd53"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[No.]]></text></staticText>
+            <staticText><reportElement x="35" y="0" width="60" height="25" uuid="9e7a86dd-b611-4440-9853-aa0a717f863e"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Codigo]]></text></staticText>
+            <staticText><reportElement x="95" y="0" width="100" height="25" uuid="2e569449-fc54-411d-bfdb-b90990f320b7"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Cedula]]></text></staticText>
+            <staticText><reportElement x="195" y="0" width="95" height="25" uuid="ccd689b7-a575-4313-b3b7-4b9b3caaf383"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Nombre]]></text></staticText>
+            <staticText><reportElement x="290" y="0" width="100" height="25" uuid="d1c7f000-bdf3-40f1-a2e3-882549df0ea7"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Apellido]]></text></staticText>
+            <staticText><reportElement x="390" y="0" width="75" height="25" uuid="26586393-4307-4738-910e-3dbedcc769db"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Telefono]]></text></staticText>
+            <staticText><reportElement x="465" y="0" width="125" height="25" uuid="cc90bc02-ab23-41e2-ad19-f08f15b33c17"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Especialidad]]></text></staticText>
+            <staticText><reportElement x="590" y="0" width="80" height="25" uuid="3352bd0c-96cf-40d0-93f4-00205964c4a3"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Mes]]></text></staticText>
+            <staticText><reportElement x="670" y="0" width="132" height="25" uuid="963419de-da4a-4f77-a3df-fe179d968668"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Anual]]></text></staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="23">
+            <textField><reportElement x="0" y="0" width="35" height="23" uuid="0e301db7-0bf9-44cd-90f3-70d3a2889203"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="35" y="0" width="60" height="23" uuid="969619f8-e072-4fa9-ad8d-6cc1649e713e"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="95" y="0" width="100" height="23" uuid="61491b3d-6348-47a6-a172-ccb9576cbf96"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="195" y="0" width="95" height="23" uuid="9f8d2712-f11d-4269-92ad-2b2f7399d696"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="290" y="0" width="100" height="23" uuid="6fb0afb6-5baa-4c80-ab04-1e6b21901671"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="390" y="0" width="75" height="23" uuid="229bd343-a8de-46f9-b173-b08781842034"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{telefono}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="465" y="0" width="125" height="23" uuid="9d11d104-e1e7-47f1-bec9-6055a4dc52c1"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{especialidad}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="590" y="0" width="80" height="23" uuid="1a097886-66b4-4f5e-b1d9-201376c9bb0d"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{pacientes_mes}]]></textFieldExpression></textField>
+            <textField isBlankWhenNull="true"><reportElement x="670" y="0" width="132" height="23" uuid="900784eb-c4d8-4e8e-bb2f-8689d5ba8ba0"/><box><pen lineWidth="0.25"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{pacientes_anual}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="25">
+            <textField><reportElement x="682" y="5" width="120" height="18" uuid="d8333c79-df4b-4c98-accc-1f52fa6907c4"/><textElement textAlignment="Right"><font size="8"/></textElement><textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression></textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="28">
+            <textField>
+                <reportElement x="600" y="5" width="202" height="20" uuid="9a873827-531a-43c9-93c1-ce05d386eb4a"/>
+                <textElement textAlignment="Right"><font size="9" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA["Total de registros: " + $V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>
